@@ -217,10 +217,12 @@ def extract_area_information(train_x: np.ndarray, test_x: np.ndarray) -> typing.
     #TODO: Extract the city_area information from the training and test features
 
     # Extract city area information for training data
-    train_coordinates, train_area_flags = extract_area_information(train_x)
+    train_coordinates = train_x[0:2]
+    train_area_flags = train_x[:2]
     
     # Extract city area information for test data
-    test_coordinates, test_area_flags = extract_area_information(test_x)
+    test_coordinates =  test_x[0:2]
+    test_area_flags = test_x[:2]
 
     assert train_coordinates.shape[0] == train_area_flags.shape[0] and test_coordinates.shape[0] == test_area_flags.shape[0]
     assert train_coordinates.shape[1] == 2 and test_coordinates.shape[1] == 2
